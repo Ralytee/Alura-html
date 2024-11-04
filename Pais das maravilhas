@@ -1,0 +1,22 @@
+<main>
+        <div class="passo ativo" id="passo-0">
+            <p>bem vindo ao pais encantado, o pais das maravilhas !</p>
+            <button class="btn-proximo" data-proximo="1">pais das maravilhas</button>
+            <button class="btn-proximo" data-proximo="2">sao paulo</button>
+        </div>
+        <div class="passo" id="passo-1">
+            <p>voce comeca sua jornada no país das maravilhas </p>
+            <button class="btn-proximo" data-proximo="3">Procurar a pista no topo da arvore</button>
+            <button class="btn-proximo" data-proximo="4">Desistir e voltar para casa</button>
+        </div>
+        </main>
+const avanca = document.querySelectorAll('.btn-proximo');
+
+avanca.forEach(button => {
+    button.addEventListener('click', function(){
+        const atual = document.querySelector('.ativo');
+        const proximoPasso = 'passo-' + this.getAttribute('data-proximo');
+
+        atual.classList.remove('ativo');
+        document.getElementById(proximoPasso).classList.add('ativo');
+    })
